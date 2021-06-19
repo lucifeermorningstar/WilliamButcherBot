@@ -171,9 +171,9 @@ def get_info(app, app2):
 print("[INFO]: STARTING BOT CLIENT")
 app.start()
 print("[INFO]: STARTING USERBOT CLIENT")
-# app2.start()
+app2.start()
 print("[INFO]: LOADING UB/BOT PROFILE INFO")
-get_info(app)
+get_info(app, app2)
 print("[INFO]: LOADED UB/BOT PROFILE INFO")
 if USERBOT_ID not in SUDOERS:
     SUDOERS.append(USERBOT_ID)
