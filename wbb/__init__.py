@@ -38,7 +38,7 @@ from Python_ARQ import ARQ
 log_file = "error.log"
 
 with open(log_file, "w") as f:
-    f.write("PEAK OF LOG FILE") 
+    f.write("PEAK OF LOG FILE")
 logging.basicConfig(
     level=logging.ERROR,
     format="[%(asctime)s.%(msecs)03d] %(filename)s:%(lineno)s %(levelname)s: %(message)s",
@@ -73,7 +73,6 @@ print("[INFO]: INITIALIZING DATABASE")
 mongo_client = MongoClient(MONGO_DB_URI)
 db = mongo_client.wbb
 
-USERBOT_ID = 1513257955
 
 async def load_sudoers():
     global SUDOERS
@@ -110,7 +109,6 @@ aiohttpsession = ClientSession()
 print("[INFO]: INITIALIZING ARQ CLIENT")
 arq = ARQ(ARQ_API_URL, ARQ_API_KEY, aiohttpsession)
 # Bot client
- 
 print("[INFO]: INITIALIZING BOT CLIENT")
 app = Client("wbb", bot_token=BOT_TOKEN, api_id=API_ID, api_hash=API_HASH)
 
@@ -128,17 +126,14 @@ USERBOT_MENTION = ""
 USERBOT_BOT_CHAT_DIFFERENCE = []
 
 
-def get_info(app):
+def get_info(app, app2):
     global BOT_ID, BOT_NAME, BOT_USERNAME, BOT_DC_ID, BOT_MENTION
     global USERBOT_ID, USERBOT_NAME, USERBOT_USERNAME, USERBOT_DC_ID, USERBOT_MENTION
     global USERBOT_BOT_CHAT_DIFFERENCE
     getme = app.get_me()
-
-
-   getme2 = app2.get_me()
+    getme2 = app2.get_me()
     BOT_ID = getme.id
     USERBOT_ID = getme2.id
-
     BOT_NAME = (
         f"{getme.first_name} {getme.last_name}"
         if getme.last_name
@@ -175,12 +170,10 @@ def get_info(app):
 
 print("[INFO]: STARTING BOT CLIENT")
 app.start()
-
 print("[INFO]: STARTING USERBOT CLIENT")
 app2.start()
 print("[INFO]: LOADING UB/BOT PROFILE INFO")
-
+get_info(app, app2)
 print("[INFO]: LOADED UB/BOT PROFILE INFO")
 if USERBOT_ID not in SUDOERS:
     SUDOERS.append(USERBOT_ID)
-
