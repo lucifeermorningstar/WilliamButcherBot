@@ -102,7 +102,7 @@ if not HEROKU:
 else:
     print("[INFO]: INITIALIZING USERBOT CLIENT")
     app2 = Client(SESSION_STRING, api_id=API_ID, api_hash=API_HASH)
-
+'''
 # Aiohttp Client
 print("[INFO]: INITIALZING AIOHTTP SESSION")
 aiohttpsession = ClientSession()
@@ -110,7 +110,7 @@ aiohttpsession = ClientSession()
 print("[INFO]: INITIALIZING ARQ CLIENT")
 arq = ARQ(ARQ_API_URL, ARQ_API_KEY, aiohttpsession)
 # Bot client
- '''
+ 
 print("[INFO]: INITIALIZING BOT CLIENT")
 app = Client("wbb", bot_token=BOT_TOKEN, api_id=API_ID, api_hash=API_HASH)
 
