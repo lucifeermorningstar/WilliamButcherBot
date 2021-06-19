@@ -84,7 +84,7 @@ async def start_bot():
     print("[INFO]: STOPPING BOT AND CLOSING AIOHTTP SESSION")
     await aiohttpsession.close()
 
-
+'''
 @app.on_message(filters.command(["help", "start"]))
 async def help_command(_, message):
     if message.chat.type != "private":
@@ -248,7 +248,7 @@ General command are:
         )
 
     return await client.answer_callback_query(query.id)
-
+'''
 
 if __name__ == "__main__":
     uvloop.install()
