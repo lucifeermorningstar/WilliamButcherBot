@@ -137,6 +137,7 @@ def get_info(app):
     BOT_ID = getme.id
     USERBOT_ID = getme2.id
 '''
+'''
     BOT_NAME = (
         f"{getme.first_name} {getme.last_name}"
         if getme.last_name
@@ -145,6 +146,7 @@ def get_info(app):
     BOT_USERNAME = getme.username
     BOT_MENTION = getme.mention
     BOT_DC_ID = getme.dc_id
+'''
 '''
     USERBOT_NAME = (
         f"{getme2.first_name} {getme2.last_name}"
