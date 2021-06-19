@@ -33,12 +33,12 @@ from motor.motor_asyncio import AsyncIOMotorClient as MongoClient
 from pyrogram import Client
 from Python_ARQ import ARQ
 
-
+'''
 # Setup logging
 log_file = "error.log"
 
 with open(log_file, "w") as f:
-    f.write("PEAK OF LOG FILE")
+    f.write("PEAK OF LOG FILE") '''
 logging.basicConfig(
     level=logging.ERROR,
     format="[%(asctime)s.%(msecs)03d] %(filename)s:%(lineno)s %(levelname)s: %(message)s",
