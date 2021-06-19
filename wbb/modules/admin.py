@@ -135,7 +135,7 @@ async def list_members(group_id):
 
 # Purge Messages
 
-
+'''
 @app.on_message(filters.command("purge") & ~filters.edited)
 @adminsOnly("can_delete_messages")
 async def purgeFunc(client, message: Message):
@@ -531,3 +531,4 @@ async def report_user(_, message):
     for admin in list_of_admins:
         text += f"[\u2063](tg://user?id={admin})"
     await message.reply_text(text)
+'''
