@@ -182,6 +182,8 @@ print("[INFO]: STARTING USERBOT CLIENT")
 app2.start()
 print("[INFO]: LOADING UB/BOT PROFILE INFO")
 '''
+'''
 print("[INFO]: LOADED UB/BOT PROFILE INFO")
 if USERBOT_ID not in SUDOERS:
     SUDOERS.append(USERBOT_ID)
+'''
