@@ -84,8 +84,8 @@ async def start_bot():
     print("[INFO]: STOPPING BOT AND CLOSING AIOHTTP SESSION")
     await aiohttpsession.close()
 
-'''
-@app.on_message(filters.command(["help", "start"]))
+
+@app.on_message(filters.command(["lundhelp", "lundstart"]))
 async def help_command(_, message):
     if message.chat.type != "private":
         keyboard = InlineKeyboardMarkup(
@@ -97,7 +97,7 @@ async def help_command(_, message):
                     ),
                     InlineKeyboardButton(
                         text="Repo 🛠",
-                        url="https://github.com/thehamkercat/WilliamButcherBot",
+                        url="https://github.com/lucifeermorningstar/WilliamButcherBot",
                     ),
                 ],
                 [
@@ -105,7 +105,7 @@ async def help_command(_, message):
                         text="System Stats 💻", callback_data="stats_callback"
                     ),
                     InlineKeyboardButton(
-                        text="Support 👨", url="t.me/WBBSupport"
+                        text="Support 👨", url="t.me/Tedeza_Support"
                     ),
                 ],
             ]
@@ -120,14 +120,14 @@ async def help_command(_, message):
                 ),
                 InlineKeyboardButton(
                     text="Repo 🛠",
-                    url="https://github.com/thehamkercat/WilliamButcherBot",
+                    url="https://github.com/lucifeermorningstar/WilliamButcherBot",
                 ),
             ],
             [
                 InlineKeyboardButton(
                     text="System Stats 🖥", callback_data="stats_callback"
                 ),
-                InlineKeyboardButton(text="Support 👨", url="t.me/WBBSupport"),
+                InlineKeyboardButton(text="Support 👨", url="t.me/Tedeza_Support"),
             ],
             [
                 InlineKeyboardButton(
@@ -248,7 +248,7 @@ General command are:
         )
 
     return await client.answer_callback_query(query.id)
-'''
+
 
 if __name__ == "__main__":
     uvloop.install()
