@@ -93,7 +93,7 @@ async def load_sudoers():
 
 loop = asyncio.get_event_loop()
 loop.run_until_complete(load_sudoers())
-'''
+
 if not HEROKU:
     print("[INFO]: INITIALIZING USERBOT CLIENT")
     app2 = Client(
@@ -102,7 +102,7 @@ if not HEROKU:
 else:
     print("[INFO]: INITIALIZING USERBOT CLIENT")
     app2 = Client(SESSION_STRING, api_id=API_ID, api_hash=API_HASH)
-'''
+
 # Aiohttp Client
 print("[INFO]: INITIALZING AIOHTTP SESSION")
 aiohttpsession = ClientSession()
@@ -133,12 +133,12 @@ def get_info(app):
     global USERBOT_ID, USERBOT_NAME, USERBOT_USERNAME, USERBOT_DC_ID, USERBOT_MENTION
     global USERBOT_BOT_CHAT_DIFFERENCE
     getme = app.get_me()
-'''
+
+
    getme2 = app2.get_me()
     BOT_ID = getme.id
     USERBOT_ID = getme2.id
-'''
-'''
+
     BOT_NAME = (
         f"{getme.first_name} {getme.last_name}"
         if getme.last_name
@@ -147,8 +147,7 @@ def get_info(app):
     BOT_USERNAME = getme.username
     BOT_MENTION = getme.mention
     BOT_DC_ID = getme.dc_id
-'''
-'''
+
     USERBOT_NAME = (
         f"{getme2.first_name} {getme2.last_name}"
         if getme2.last_name
@@ -157,8 +156,7 @@ def get_info(app):
     USERBOT_USERNAME = getme2.username
     USERBOT_MENTION = getme2.mention
     USERBOT_DC_ID = getme2.dc_id
-'''
-'''
+
     all_ub_chats = [
         i.chat.id
         for i in app2.iter_dialogs()
@@ -173,17 +171,16 @@ def get_info(app):
         for x in USERBOT_BOT_CHAT_DIFFERENCE
         if x not in SPAM_CHECK_EXCEPTION_GROUPS
     ]
-'''
+
 
 print("[INFO]: STARTING BOT CLIENT")
 app.start()
-'''
+
 print("[INFO]: STARTING USERBOT CLIENT")
 app2.start()
 print("[INFO]: LOADING UB/BOT PROFILE INFO")
-'''
-'''
+
 print("[INFO]: LOADED UB/BOT PROFILE INFO")
 if USERBOT_ID not in SUDOERS:
     SUDOERS.append(USERBOT_ID)
-'''
+
