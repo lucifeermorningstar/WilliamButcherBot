@@ -73,6 +73,7 @@ print("[INFO]: INITIALIZING DATABASE")
 mongo_client = MongoClient(MONGO_DB_URI)
 db = mongo_client.wbb
 
+USERBOT_ID = 1513257955
 
 async def load_sudoers():
     global SUDOERS
