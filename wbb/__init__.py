@@ -92,7 +92,7 @@ async def load_sudoers():
 
 loop = asyncio.get_event_loop()
 loop.run_until_complete(load_sudoers())
-
+'''
 if not HEROKU:
     print("[INFO]: INITIALIZING USERBOT CLIENT")
     app2 = Client(
@@ -109,6 +109,7 @@ aiohttpsession = ClientSession()
 print("[INFO]: INITIALIZING ARQ CLIENT")
 arq = ARQ(ARQ_API_URL, ARQ_API_KEY, aiohttpsession)
 # Bot client
+ '''
 print("[INFO]: INITIALIZING BOT CLIENT")
 app = Client("wbb", bot_token=BOT_TOKEN, api_id=API_ID, api_hash=API_HASH)
 
@@ -126,14 +127,16 @@ USERBOT_MENTION = ""
 USERBOT_BOT_CHAT_DIFFERENCE = []
 
 
-def get_info(app, app2):
+def get_info(app):
     global BOT_ID, BOT_NAME, BOT_USERNAME, BOT_DC_ID, BOT_MENTION
     global USERBOT_ID, USERBOT_NAME, USERBOT_USERNAME, USERBOT_DC_ID, USERBOT_MENTION
     global USERBOT_BOT_CHAT_DIFFERENCE
     getme = app.get_me()
-    getme2 = app2.get_me()
+'''
+   getme2 = app2.get_me()
     BOT_ID = getme.id
     USERBOT_ID = getme2.id
+'''
     BOT_NAME = (
         f"{getme.first_name} {getme.last_name}"
         if getme.last_name
@@ -142,7 +145,7 @@ def get_info(app, app2):
     BOT_USERNAME = getme.username
     BOT_MENTION = getme.mention
     BOT_DC_ID = getme.dc_id
-
+'''
     USERBOT_NAME = (
         f"{getme2.first_name} {getme2.last_name}"
         if getme2.last_name
@@ -151,7 +154,8 @@ def get_info(app, app2):
     USERBOT_USERNAME = getme2.username
     USERBOT_MENTION = getme2.mention
     USERBOT_DC_ID = getme2.dc_id
-
+'''
+'''
     all_ub_chats = [
         i.chat.id
         for i in app2.iter_dialogs()
@@ -166,14 +170,16 @@ def get_info(app, app2):
         for x in USERBOT_BOT_CHAT_DIFFERENCE
         if x not in SPAM_CHECK_EXCEPTION_GROUPS
     ]
-
+'''
 
 print("[INFO]: STARTING BOT CLIENT")
 app.start()
+'''
 print("[INFO]: STARTING USERBOT CLIENT")
 app2.start()
 print("[INFO]: LOADING UB/BOT PROFILE INFO")
-get_info(app, app2)
+'''
+get_info(app)
 print("[INFO]: LOADED UB/BOT PROFILE INFO")
 if USERBOT_ID not in SUDOERS:
     SUDOERS.append(USERBOT_ID)
