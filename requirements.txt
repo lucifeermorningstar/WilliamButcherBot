@@ -1,5 +1,6 @@
 aiohttp
 aiofiles
+sqlalchemy==1.3.20
 ffmpeg-python
 gTTS
 cryptography
