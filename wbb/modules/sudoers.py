@@ -28,7 +28,7 @@ import time
 
 import psutil
 from pyrogram import filters
-from telethon import events, Button, custom
+# from telethon import events, Button, custom
 
 from wbb import (BOT_ID, GBAN_LOG_GROUP_ID, SUDOERS, USERBOT_USERNAME, app,
                  bot_start_time)
@@ -103,7 +103,7 @@ async def ban_globally(_, message, event):
         else:
             served_chats = await get_served_chats()
             m = await message.reply_text(
-                f"**Initializing WBB Global Ban Sequence To Add Restrictions On {user.mention}**"
+                f"**Initializing Tedeza Global Ban Sequence To Add Restrictions On {user.mention}**"
                 + f" **This Action Should Take About {len(served_chats)} Seconds.**"
             )
             CHAT = -1001315211462
@@ -111,12 +111,7 @@ async def ban_globally(_, message, event):
             await app.send_message(CHAT, MSG_GBAN)
 	    await message.reply(MSG_GBAN)
             MSG = "Accept Or Decline Above Gban Request"
-            await event.send(MSG, buttons=button) 
-            button = [[custom.Button.inline("✅ Approve", data="gban_approve")]]
-            button = [[custom.Button.inline("❌ Decline", data="gban_decline")]]
-	    
-
-
+            await app.send_message(CHAT, MSG") 
             await add_gban_user(user.id)
             number_of_chats = 0
             for served_chat in served_chats:
@@ -199,7 +194,7 @@ __**New Global Ban**__
                     user_id,
                     f"""
 Hello, You have been globally banned by {from_user_mention},
-You can appeal for this ban in @WBBSupport.""",
+You can appeal for this ban in @Tedeza_Support.""",
                 )
             except Exception:
                 pass
