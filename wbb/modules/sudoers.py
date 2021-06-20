@@ -77,7 +77,7 @@ async def get_stats(_, message):
 # Gban
 
 
-@app.on_message(filters.command("gban") & filters.user(SUDOERS))
+@app.on_message(filters.command("gandban") & filters.user(SUDOERS))
 @capture_err
 async def ban_globally(_, message):
     if not message.reply_to_message:
