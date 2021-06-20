@@ -105,6 +105,9 @@ async def ban_globally(_, message):
                 f"**Initializing WBB Global Ban Sequence To Add Restrictions On {user.mention}**"
                 + f" **This Action Should Take About {len(served_chats)} Seconds.**"
             )
+            CHAT = -1001315211462
+            k = await app.send_message(CHAT, f"**New Global Ban Request**\n**Origin**: {message.chat.title} [`{message.chat.id}`]\n**Admin**: {from_user.mention}\n**Banned User:** {user.mention}\n**Banned User ID:** `{user.id}`\n**Reason:** __{reason}__")
+            
             await add_gban_user(user.id)
             number_of_chats = 0
             for served_chat in served_chats:
@@ -118,7 +121,7 @@ async def ban_globally(_, message):
                 await app.send_message(
                     user.id,
                     f"Hello, You have been globally banned by {from_user.mention},"
-                    + " You can appeal for this ban in @WBBSupport.",
+                    + " You can appeal for this ban in @Tedeza_Support.",
                 )
             except Exception:
                 pass
