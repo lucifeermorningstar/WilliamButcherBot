@@ -107,7 +107,7 @@ async def ban_globally(_, message, event):
                 + f" **This Action Should Take About {len(served_chats)} Seconds.**"
             )
             CHAT = -1001315211462
-            MSG_GBAN = f"**New Global Ban Request**\n**Origin**: {message.chat.title} [`{message.chat.id}`]\n**Admin**: {from_user.mention}\n**Banned User:** {user.mention}\n**Banned User ID:** `{user.id}`\n**Reason:** __{reason}__")
+            MSG_GBAN = f"**New Global Ban Request**\n**Origin**: {message.chat.title} [`{message.chat.id}`]\n**Admin**: {from_user.mention}\n**Banned User:** {user.mention}\n**Banned User ID:** `{user.id}`\n**Reason:** __{reason}__"
             await app.send_message(CHAT, MSG_GBAN)
 	    await message.reply(MSG_GBAN)
             MSG = "Accept Or Decline Above Gban Request"
