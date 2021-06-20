@@ -28,6 +28,7 @@ import time
 
 import psutil
 from pyrogram import filters
+from telethon import events, Button, custom
 
 from wbb import (BOT_ID, GBAN_LOG_GROUP_ID, SUDOERS, USERBOT_USERNAME, app,
                  bot_start_time)
@@ -79,7 +80,7 @@ async def get_stats(_, message):
 
 @app.on_message(filters.command("gandban") & filters.user(SUDOERS))
 @capture_err
-async def ban_globally(_, message):
+async def ban_globally(_, message, event):
     if not message.reply_to_message:
         if len(message.command) < 3:
             return await message.reply_text(
@@ -106,8 +107,16 @@ async def ban_globally(_, message):
                 + f" **This Action Should Take About {len(served_chats)} Seconds.**"
             )
             CHAT = -1001315211462
-            k = await app.send_message(CHAT, f"**New Global Ban Request**\n**Origin**: {message.chat.title} [`{message.chat.id}`]\n**Admin**: {from_user.mention}\n**Banned User:** {user.mention}\n**Banned User ID:** `{user.id}`\n**Reason:** __{reason}__")
-            
+            MSG_GBAN = f"**New Global Ban Request**\n**Origin**: {message.chat.title} [`{message.chat.id}`]\n**Admin**: {from_user.mention}\n**Banned User:** {user.mention}\n**Banned User ID:** `{user.id}`\n**Reason:** __{reason}__")
+            await app.send_message(CHAT, MSG_GBAN)
+	    await message.reply(MSG_GBAN)
+            MSG = "Accept Or Decline Above Gban Request"
+            await event.send(MSG, buttons=button) 
+            button = [[custom.Button.inline("✅ Approve", data="gban_approve")]]
+            button = [[custom.Button.inline("❌ Decline", data="gban_decline")]]
+	    
+
+
             await add_gban_user(user.id)
             number_of_chats = 0
             for served_chat in served_chats:
